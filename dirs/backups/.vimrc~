@@ -1,0 +1,11 @@
+set number
+set backspace=2
+syntax on
+packloadall
+ 
+
+call plug#begin()
+
+     Plug 'scrooloose/nerdtree'
+
+call plug#end()

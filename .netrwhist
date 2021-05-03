@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/morpheus/.vim'
+let g:netrw_dirhist_6='/home/morpheus/.vim/bundle/Vundle.vim'
+let g:netrw_dirhist_5='/home/morpheus/.vim'
+let g:netrw_dirhist_4='/home/morpheus/.vscode'
+let g:netrw_dirhist_3='/home/morpheus/djsnippets/ruby4/resonet'
+let g:netrw_dirhist_2='/home/morpheus/myproject/blog'
+let g:netrw_dirhist_1='/home/morpheus/myproject'
