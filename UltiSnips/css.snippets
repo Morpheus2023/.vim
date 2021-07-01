@@ -1,0 +1,60 @@
+#1
+snippet .text "a basic class named text" b
+.text {
+  font-size: ${1:18pt};
+	background-color: ${2:lightblue};
+	color: ${3:black};
+	text-align: ${4:center};
+	}
+endsnippet
+
+#2
+snippet .header "a basic css class for webpage header" b
+.header: {
+  background-color: ${1:cyan};
+	color: ${2:Black};
+	height: ${3:100px};
+	font-size: ${4:36pt};
+	text-align: ${4:center};
+	}
+endsnippet
+
+#3
+snippet body "css styling for body" b
+body:{
+  margin: ${1:25px};
+	background-color: ${2:wheat};
+	padding-top:65px;
+	}
+endsnippet
+
+#4
+
+snippet cnav "custom styling of navbar" b
+  /* Add a black background color to the top navigation */
+  .topnav{
+      background-color: #333;
+      overflow:hidden
+  }
+  /* Style the links inside the navigation bar */
+  .topnav a {
+      float: left;
+      color:#f2f2f2;
+      text-align:center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+  }
+  /* Change the color of links on hover */
+  .topnav a:hover{
+      background-color:#ddd;
+      color: black;
+  }
+  /* Add a color to the active/curretn link*/
+  
+  /* Add an active class to highlight the current page */
+  .active {
+      background-color: #4CAF50;
+      color: white;
+  }
+endsnippet

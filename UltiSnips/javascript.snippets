@@ -1,0 +1,35 @@
+#1
+snippet al "alert statement" b
+alert("${1:message}");
+endsnippet
+
+#2
+snippet va "variable statement" b
+var ${1:identifier} = "${2:value}";
+endsnippet
+
+#3
+snippet if "if statement" b
+if(${1:condition}) {
+    ${2:body};
+}
+endsnippet
+
+#4
+snippet ife "if-else statement" b
+if(${1:condition}) {
+    ${2:body};
+}
+else {
+   ${3:body};
+}
+endsnippet
+
+#5
+snippet func "function" b
+function ${1:function_name}() {
+   ${2:body};
+}
+endsnippet
+
+

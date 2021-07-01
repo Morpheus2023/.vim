@@ -1,0 +1,92 @@
+#1
+snippet urlpat "urlpatterns" b
+from django.urls import path
+from . import views
+urlpatterns=[
+   path('${2:url_path}',views.${1:view_name},name='${3:pattern_name}'),
+]
+endsnippet
+
+#2
+snippet funcview "basic function view" b
+def ${1:view_name}(request):
+    context={}
+    return render(request,'${2:app_name}/${3:page_name}.html',context)
+endsnippet
+
+#3
+snippet appreg "app registration" b
+'${1:app_name}.apps.${2:Blog}Config',
+endsnippet
+
+snippet itzone "imports timezone" b
+from django.utils import timezone
+endsnippet
+
+#4
+snippet char "CharField"
+${1:FIELDNAME} = models.CharField(max_length=${2}${0:, blank=True})
+endsnippet
+
+#5
+snippet datetime
+${1:FIELDNAME} = models.DateTimeField(${2:auto_now_add=True, auto_now=True}${0:, blank=True, null=True})
+endsnippet
+
+#6
+snippet path "boiler plate of a path" b
+path('${2:url_path}',views.${1:view_name},name='${3:pattern_name}'),
+endsnippet
+
+#7
+snippet staticdir "static directory" b
+import os
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR,"static"),
+   ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+endsnippet
+
+#8
+snippet pathin "urlpattern with include" b
+path('${2:path}/',include('${1:app_name}.urls')),
+endsnippet
+
+#9
+snippet bmod "basic model for blog" b
+from django.contrib.auth.models import User
+
+STATUS= (
+        (0,"Draft"),
+        (1,"Publihs"),
+        )
+class Post(models.Model):
+    title = models.CharField(max_length=200,unique=True)
+    slug = models.SlugField(max_length=200,unique=True)
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='blog_posts')
+    updated_on = models.DateTimeField(auto_now=True)
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS,default=0)
+
+    class Meta:
+       ordering = ['-created_on']
+
+    def __str__(self):
+       return self.title
+
+endsnippet
+
+#10
+snippet amadm "adding models to administration" b
+from .models import Post
+
+admin.site.register(Post)
+endsnippet
+
+#serial_no= 11
+snippet usvi "user view import statements" b
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate
+
+endsnippet

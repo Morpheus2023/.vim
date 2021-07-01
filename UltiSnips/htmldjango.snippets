@@ -1,0 +1,248 @@
+#snippet_no= 1
+snippet child "chid/inherited page in Jinja2" b
+{% extends '${1:<!--app_name -->}/base.html' %}
+{% load static %}
+  {% block title %}
+       ${2:<!--page_tite-->}
+  {% endblock title %}
+  {% block content %}
+			 <p class=" ${3:class_name}">
+         ${4:paragraph_content}
+			 </p>
+  {% endblock content %}
+endsnippet
+
+#snippet_no= 2
+snippet bform "basic form in Jinja2" b
+{% extends '${1:<!-- app_name -->}/base.html' %}
+  {% block title %}"
+       ${2:<!-- page_title -->}
+  {% endblock title %}
+  {% block content %}
+       <form action='$3' mehtod='post'> 
+       {% csrf_token %}  <!--cross site request frogery-->
+       ${4:<!--form body(input statements)-->}
+       <input type='submit' value='Submit'>
+       </form>
+  {% endblock content %}
+endsnippet
+
+#snippet_no= 3
+snippet parent "base/parent page in Jinja2" b
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  {% load static %}
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+     
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+	<!-- Custom CSS tag-->
+  <link rel="stylesheet" href="{% static '${1:app_name}/styles.css' %}" type="text/css" media="screen" title="no title" charset="utf-8">
+    
+  <title> $1{% block title %}{% endblock title %} </title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"> 
+    <!-- Brand -->
+    <a class="navbar-brand" href="{% url '${2:app_name}-home' %}">Wickednext</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+
+         {% url '${3:app_name}-home' as url %}
+         <li class="nav-item {% if request.path == url %}active {% endif %}">
+          <a class="nav-link" href="{{ url }}">Home</a>
+        </li>
+
+         {% url '${4:app_name}-FAQ' as url %}
+         <li class="nav-item {% if request.path == url %}active {% endif %}">
+          <a class="nav-link" href="{{ url }}">FAQ</a>
+        </li>
+
+         {% url '${5:app_name}-notifications' as url %}
+        <li class="nav-item {% if request.path == url %}active {% endif %}">
+           <a class="nav-link" href="{{ url }}">Notifications</a>
+        </li>
+
+      </ul>
+   </div>
+  </nav>  
+     
+  $2
+  {% block content %}    
+  {% endblock content %}
+    
+	 <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+   <!-- Popper JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+   <!-- Latest compiled JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+   	
+   <!-- custom javascript --> 
+   <script src="{% static '${6:app_name}/script.js' %}" charset="utf-8"></script>
+
+</body>
+</html>
+endsnippet
+
+#snippet_no= 4
+snippet ureg "basic user registration form" b
+Name: <input type='text' name='name'> <br>
+Email: <input type='email' name='email' id=''> <br>
+Phone: <input type='number' name='phone' id=''> <br>
+Password: <input type='password' name='password' id=''> <br>
+endsnippet
+
+
+
+#snippet_no= 5
+snippet <br "breaks line" b
+<br>
+endsnippet
+
+#snippet_no= 6 
+snippet div "block in css" b
+<div>
+$1
+</div>
+endsnippet
+
+#snippet_no= 7 
+snippet <p "paragraph tag" b
+<p>
+$1
+</p>
+endsnippet
+
+#snippet_no= 8 
+snippet <p. "paragraph with class" b
+<p class="$1">
+$2
+</p>
+endsnippet
+
+#snippet_no= 9
+snippet div. "div with class" b
+<div class="$1">
+$2
+</div>
+endsnippet
+
+#snippet_no= 10
+snippet div# "div with id" b
+<div id="$1">
+$2
+</div>
+endsnippet
+
+#snippet_no= 11
+snippet ! "Boiler plate for HTML" b
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${1:Document}</title>
+</head>
+<body>
+   $2
+</body>
+</html>
+endsnippet
+
+#snippet_no= 12
+snippet stimg "static image tag" b
+<img src="{% static '${1:app_name}/img/${2:image_name}' %}" alt="My image">
+endsnippet
+
+#snippet_no= 13
+snippet ststyle "static css tag" b
+<link rel="stylesheet" href="{% static '${1:app_name}/css/${2:file_name}.css'  %}" type="text/css" media="screen" title="no title" charset="utf-8">
+endsnippet
+
+#snippet_no= 14
+snippet stscript "static script tag" b
+<script type="text/javascript"  src="{% static '${1:app_name}/js/${2:file_name}.js' %}" charset="utf-8"></script>
+endsnippet
+
+#snippet_no= 15
+snippet bnav "basic,fixed,Bootstrap navbar" b
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" role="navigation"> 
+    <!-- Brand -->
+    <a class="navbar-brand" href="{% url '${1:app_name}-home' %}">${8:project_name}</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+
+         {% url '${2:app_name}-home' as url %}
+         <li class="nav-item {% if request.path == url %}active {% endif %}">
+            <a class="nav-link" href="{% url '${3:app_name}-home' %}">Index</a>
+        </li>
+
+        {% url '${4:app_name}-FAQ' as url %}
+         <li class="nav-item {% if request.path == url %}active {% endif %}">
+            <a class="nav-link" style="color:;" href="{% url '${5:app_name}-FAQ' %}">FAQ</a>
+        </li>
+
+        {% url '${6:app_name}-notifications' as url %}
+        <li class="nav-item {% if request.path == url %}active {% endif %}">
+            <a class="nav-link" style="color:;" href="{% url '${7:app_name}-notifications' %}">Notifications</a>
+        </li>
+
+      </ul>
+   </div>
+  </nav>  
+ 
+
+endsnippet
+
+#snippet_no= 16
+snippet <p# "paragraph tag with an id" b
+<p id="">
+  ${1:write your paragraph here}
+</p>
+endsnippet
+
+#snippet_no= 17
+snippet hnav "html of navbar" b
+   <!-- load an icon library to show a hamburger menu (bars) on small screens -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <div class='topnav'>
+      {% url '${1:app_name}-home' as url %}
+      <a  class="{% if request.path == url %}active{% endif %}"href="{% url '${2:app_name}-home' %}" >home</a>
+
+      {% url '${3:app_name}-FAQ' as url %}
+      <a class="{% if request.path == url %}active{% endif %}" href="{% url '${4:app_name}-FAQ' %}">About</a>
+
+      {% url '${5:app_name}-notifications' as url %}
+      <a class="{% if request.path == url %}active{% endif %}" href="{% url '${6:app_name}-notifications' %}">Profile</a>
+  </div>
+
+
+endsnippet
+
+#snippet_no= 18
+snippet activea "active anchor tag" b
+      {% url '${1:app_name}-home' as url %}
+      <a  class="{% if request.path == url %}active{% endif %}"href="{% url '${2:app_name}-home' %}" >home</a>
+endsnippet
