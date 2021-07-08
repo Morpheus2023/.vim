@@ -90,3 +90,31 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 
 endsnippet
+
+#serial_no= 12
+snippet cpath "url path for a class based view" b
+path('${1:path}/,${2:view_name}View.as_view(template_name="${3:template}")),
+endsnippet
+
+#serial_no= 13
+snippet classview "class based view" b
+class ${1:child_view}(${2:Parent_view}):
+       template_name="${3:template_nam}
+endsnippet
+
+#serial_no= 14
+snippet ListView "List the entries of a model" b
+class ${1:model_name}List(ListView):
+    model = ${2:model_name} 
+
+    def head(self, *args,**kwargs):
+        last_entry =
+        self.get_queryset().latest('${3:publish_date}')
+
+        response = HttpsResponse(
+                headers={'Last-Modified:last_entry.publication_date.strftime('%a, %d %b %Y %H:%M:%S GMT')},
+                )
+
+        return response
+endsnippet
+ 
