@@ -241,8 +241,13 @@ snippet hnav "html of navbar" b
 
 endsnippet
 
-#snippet_no= 18
-snippet activea "active anchor tag" b
-      {% url '${1:app_name}-home' as url %}
-      <a  class="{% if request.path == url %}active{% endif %}"href="{% url '${2:app_name}-home' %}" >home</a>
+#snippet_no = 18
+snippet acta "active anchor tag" b
+ {% url "${1:app_name}-${2:path_name}" as url %}
+<li class="nav-item {% if request.path == url %}active {% endif %}">
+   <a class="nav-link" style="color:;" href="{{ url }}">${3:link_name}</a>
+</li>
+
 endsnippet
+
+
