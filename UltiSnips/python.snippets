@@ -99,7 +99,7 @@ endsnippet
 #serial_no= 13
 snippet classview "class based view" b
 class ${1:child_view}(${2:Parent_view}):
-       template_name="${3:template_nam}"
+       $3
 endsnippet
 
 #serial_no= 14
@@ -118,3 +118,13 @@ class ${1:model_name}List(ListView):
         return response
 endsnippet
  
+#serial_no= 15
+snippet metget "method:get" b
+def get(self,request):
+   return HttpsResponse(self.${1:attribute})
+endsnippet
+
+#serial_no= 16
+snippet atttemp "attribute:template" b
+     template_name="${3:template_name}"
+endsnippet
