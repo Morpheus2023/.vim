@@ -122,16 +122,19 @@ endsnippet
 snippet metget "method:get" b
 def get(self,request):
    return HttpsResponse(self.${1:attribute})
+$2
 endsnippet
 
 #serial_no= 16
 snippet atttemp "attribute:template" b
-     template_name="${3:template_name}"
+template_name="${1:template_name}"
+$2
 endsnippet
 
 #serial_no= 17
 snippet att "attribute of a class" b
 ${1:attribute_name} = ${2:attribute_value}
+$3
 endsnippet
 
 #serial_no= 18
