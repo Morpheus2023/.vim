@@ -93,7 +93,7 @@ endsnippet
 
 #serial_no= 12
 snippet cpath "url path for a class based view" b
-path('${1:path}/',views.${2:view_name}View.as_view(),name=''),
+path('${1:path}/',views.${2:view_name}View.as_view(),name='${3:path_name}'),
 endsnippet
 
 #serial_no= 13
