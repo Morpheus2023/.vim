@@ -142,3 +142,41 @@ snippet met "method of a class" b
 def ${1:method_name}(self,${2:parameters}):
     ${3:body}
 endsnippet
+
+#serial_no= 19
+snippet email_form "Email form" b
+from django import forms
+class EmailPostForm(forms.Form):
+   name = forms.CharField(max_lenth=25)
+	 email = fomrs.EmailField()
+	 to = forms.EmailField()
+	 comments = forms.CharField(required=False,
+	                            widget=forms.Textarea)
+endsnippet
+
+#serial_no= 20
+snippet share_view "share objects via email" b
+def post_share(request,post_id):
+   #Retrieve post by id 
+	 post = get_object_or_404(Post, id=post_id, status='published')
+	 if request.method == 'POST':
+	   # Form was submitted
+		 form = EmailPostForm(request.POST)
+		 if form.is_valid():
+		    # Form fields passed validation
+				cd = form.cleaned_data
+				# ...send eamil
+	 else:
+	   form = EmailPostForm()
+	 return render(request,'${1:app_name}/post/share.html', {'post':post,
+	                                                         'form':form})
+endsnippet
+
+#serial_no= 21
+snippet email_settings "settings to send email" b
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'morpheus.wcked@gmail.com'
+EMAIL_HOST_PASSWORD = 'wckd1234'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+endsnippet
