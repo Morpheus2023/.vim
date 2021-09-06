@@ -147,11 +147,10 @@ endsnippet
 snippet email_form "Email form" b
 from django import forms
 class EmailPostForm(forms.Form):
-   name = forms.CharField(max_lenth=25)
-	 email = fomrs.EmailField()
-	 to = forms.EmailField()
-	 comments = forms.CharField(required=False,
-	                            widget=forms.Textarea)
+   name = forms.CharField(max_length=25)
+   email = forms.EmailField()
+   to = forms.EmailField()
+   comments = forms.CharField(required=False,widget=forms.Textarea)
 endsnippet
 
 #serial_no= 20
@@ -180,4 +179,10 @@ EMAIL_HOST_USER = 'morpheus.wcked@gmail.com'
 EMAIL_HOST_PASSWORD = 'wckd1234'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+endsnippet
+
+#serial_no= 22
+snippet email_import "imports modules for email share" b
+from .forms import EmailPostForm
+from django.core.mail import send_mail
 endsnippet
