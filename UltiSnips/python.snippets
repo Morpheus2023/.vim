@@ -216,4 +216,12 @@ class Comment(models.Model):
         return f'Comment by {self.name} on {self.post}'
 endsnippet
 
-
+#serial_no= 24
+snippet comment_admin "adds comment to admin panel" b
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name','email','post','created','active')
+    list_filter = ('active','created','updated')
+    search_fields = ('name','email','body')
+body 
+endsnippet
