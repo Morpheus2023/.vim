@@ -193,7 +193,8 @@ endsnippet
 
 #serial_no= 22
 snippet email_import "imports modules for email share" b
-from .forms import EmailPostForm
+from .models import Post,Comment
+from .forms import EmailPostForm , CommentForm
 from django.core.mail import send_mail
 endsnippet
  
